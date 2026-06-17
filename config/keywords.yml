@@ -1,0 +1,45 @@
+ai_ml:
+  - AI
+  - LLM
+  - Claude
+  - Anthropic
+  - Gemini
+  - OpenAI
+  - RAG
+  - 機械学習
+  - 生成AI
+  - Agent
+
+cloud_infra:
+  - AWS
+  - Lambda
+  - ECS
+  - Fargate
+  - Terraform
+  - Docker
+  - CDK
+
+language_framework:
+  - PHP
+  - Laravel
+  - Python
+
+db:
+  - MySQL
+  - PostgreSQL
+  - Redis
+  - DynamoDB
+
+dev_practice:
+  - CI/CD
+  - GitHub Actions
+  - アーキテクチャ
+
+security:
+  - セキュリティ
+  - 脆弱性
+  - OWASP
+
+observability:
+  - OpenTelemetry
+  - Datadog
