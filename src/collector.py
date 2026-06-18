@@ -8,6 +8,7 @@ logger = logging.getLogger(__name__)
 FEED_URLS: dict[str, str] = {
     "zenn": "https://zenn.dev/feed",
     "qiita": "https://qiita.com/popular-items/feed",
+    "hatena": "https://b.hatena.ne.jp/hotentry/it.rss",
 }
 
 

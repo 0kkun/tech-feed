@@ -16,7 +16,7 @@ def build_email_html(articles: list[Article]) -> str:
     for article in articles:
         grouped.setdefault(article.source, []).append(article)
 
-    source_labels = {"zenn": "Zenn", "qiita": "Qiita"}
+    source_labels = {"zenn": "Zenn", "qiita": "Qiita", "hatena": "はてなブックマーク"}
     sections = ""
     for source, items in grouped.items():
         label = source_labels.get(source, source)
