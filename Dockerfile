@@ -1,5 +1,7 @@
 FROM python:3.12-slim
 
+ENV TZ=Asia/Tokyo
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
     cron \
     && rm -rf /var/lib/apt/lists/*
@@ -14,4 +16,4 @@ COPY . .
 COPY cron/crontab /etc/cron.d/tech-feed
 RUN chmod 0644 /etc/cron.d/tech-feed && crontab /etc/cron.d/tech-feed
 
-CMD ["cron", "-f"]
+CMD ["sh", "-c", "env >> /etc/environment && cron -f"]
