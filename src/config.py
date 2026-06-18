@@ -21,8 +21,8 @@ def get_database_url() -> str:
     return os.environ["DATABASE_URL"]
 
 
-def get_sendgrid_api_key() -> str:
-    return os.environ["SENDGRID_API_KEY"]
+def get_resend_api_key() -> str:
+    return os.environ["RESEND_API_KEY"]
 
 
 def get_from_email() -> str:

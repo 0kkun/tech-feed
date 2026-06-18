@@ -6,7 +6,7 @@
 
 - Zenn/QiitaからRSSで技術記事を日次収集
 - キーワードフィルタリングしてPostgreSQLに保存
-- 毎朝7時にSendGridで1日分のダイジェストメールを送信
+- 毎朝7時にResendで1日分のダイジェストメールを送信
 - ローカルDocker環境で完結（デプロイなし）
 
 ## 技術スタック
@@ -15,7 +15,7 @@
 - PostgreSQL
 - SQLAlchemy（ORM）
 - feedparser（RSS取得）
-- SendGrid公式SDK（メール送信）
+- Resend公式SDK（メール送信）
 - cron（Docker内での定期実行）
 - docker-compose
 
@@ -61,7 +61,7 @@ docker-compose exec db psql -U techfeed -d techfeed
 ## 設計方針
 
 - シンプルさを最優先。過度な抽象化はしない
-- 設定値（キーワード、メールアドレス、SendGrid APIキー等）は環境変数または設定ファイルで管理
+- 設定値（キーワード、メールアドレス、Resend APIキー等）は環境変数または設定ファイルで管理
 - .envファイルはGit管理外。.env.exampleをテンプレートとして管理
 - キーワードはymlファイルで管理し、コード変更なしで追加・削除可能にする
 - 重複排除はURLのユニーク制約 + `ON CONFLICT DO NOTHING`で実現

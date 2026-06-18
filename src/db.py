@@ -1,6 +1,7 @@
 """DB接続・モデル定義・CRUD"""
 import logging
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
 from sqlalchemy import Column, DateTime, Integer, String, create_engine
 from sqlalchemy.dialects.postgresql import insert
@@ -23,7 +24,7 @@ class Article(Base):
     url = Column(String, unique=True, nullable=False)
     source = Column(String, nullable=False)
     keyword = Column(String, nullable=False)
-    created_at = Column(DateTime, default=datetime.now)
+    created_at = Column(DateTime, default=lambda: datetime.now(ZoneInfo("Asia/Tokyo")))
 
 
 def get_engine():
@@ -68,5 +69,5 @@ def get_today_articles() -> list[Article]:
     """今日保存された記事を取得する。"""
     engine = get_engine()
     with Session(engine) as session:
-        today = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
+        today = datetime.now(ZoneInfo("Asia/Tokyo")).replace(hour=0, minute=0, second=0, microsecond=0)
         return session.query(Article).filter(Article.created_at >= today).all()
